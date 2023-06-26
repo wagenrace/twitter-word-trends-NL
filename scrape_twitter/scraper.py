@@ -22,4 +22,4 @@ for tweet in sntwitter.TwitterSearchScraper(query).get_items():
         break
 # Creating a dataframe from the tweets list above 
 tweets_df1 = pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username', "Url"])
-tweets_df1.to_csv(os.path.join(result_dir, "results.csv"))
+tweets_df1.to_csv(os.path.join(result_dir, "10k_tweets_nl.csv"))
