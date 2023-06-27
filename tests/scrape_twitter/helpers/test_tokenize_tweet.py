@@ -67,6 +67,13 @@ def test_remove_emojis():
     assert result == ["inhoudelijk", "profiel"]
 
 
+def test_remove_emojis_ascii():
+    tweet = "Mijn therapeut vond mijn jurk mooi vandaag ☺️"
+    result = tokenize_tweet(tweet)
+
+    assert result == ["mijn", "therapeut", "vond", "mijn", "jurk", "mooi", "vandaag"]
+
+
 def test_words_with_dashes():
     tweet = "Tijdelijke basisschool op voetbalcomplex Berkel-Enschot https://t.co/vu8Pl7RbWz https://t.co/8dm4gaOSwe"
     result = tokenize_tweet(tweet)
@@ -95,4 +102,29 @@ def test_remove_links():
         "en",
         "na",
         "woii",
+    ]
+
+
+def test_single_dash():
+    tweet = "Doe maar aangifte (evt art 12-procedure erbij) - er moet -hiervoor gestraft worden, ---anders blijft dit zich herhalen ..."
+    result = tokenize_tweet(tweet)
+
+    assert result == [
+        "doe",
+        "maar",
+        "aangifte",
+        "evt",
+        "art",
+        "12-procedure",
+        "erbij",
+        "er",
+        "moet",
+        "hiervoor",
+        "gestraft",
+        "worden",
+        "anders",
+        "blijft",
+        "dit",
+        "zich",
+        "herhalen",
     ]

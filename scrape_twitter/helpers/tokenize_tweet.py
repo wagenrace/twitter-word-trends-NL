@@ -1,7 +1,7 @@
 import re
 from typing import List
 
-regex = re.compile(r"#?[\w-]+")
+regex = re.compile(r"#?\w[\w-]*")
 regex_links = re.compile(r"https://[\w\.\d/]+")
 
 
