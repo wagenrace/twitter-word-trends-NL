@@ -1,5 +1,4 @@
 from .tokenize_tweet import tokenize_tweet
-from tqdm import tqdm
 import spacy
 
 model_name = "nl_core_news_lg"
@@ -11,7 +10,7 @@ except OSError:
 
 
 def count_words(tweets: list[str], all_words: dict = {}):
-    for tweet in tqdm(tweets):
+    for tweet in tweets:
         words = tokenize_tweet(tweet)
         doc = NLP(" ".join(words))
 
@@ -36,5 +35,4 @@ def count_words(tweets: list[str], all_words: dict = {}):
 
             all_words[lemma] = all_words.get(lemma, 0) + 1
 
-    print(f"In {len(tweets)} tweets we found {len(all_words)} unique lemma")
     return all_words
