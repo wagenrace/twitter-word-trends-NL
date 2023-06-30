@@ -7,6 +7,7 @@ try:
 except OSError:
     print(f"downloading the model {model_name}")
     spacy.cli.download(model_name)
+    NLP = spacy.load(model_name)
 
 
 def count_words(tweets: list[str], all_words: dict = {}):
